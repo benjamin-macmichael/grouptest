@@ -46,15 +46,15 @@ dictCustomer = {}
 #create a loop that takes the value in the first position of the queue and checks the dictionary for a key (which is the name)
 #if the name is in the dictionary then increment the burger total, if not then create a new key and value in the dictionary.
 #Loop through 100 times
-iCount = 0
-while iCount < 100 :
+iCnt = 0
+while iCnt < 100 :
     if queueCustomers[0].customer_name in dictCustomer :
         dictCustomer[queueCustomers[0].customer_name] = dictCustomer[queueCustomers[0].customer_name] + queueCustomers[0].order.burger_count
     else:
         dictCustomer[queueCustomers[0].customer_name] = queueCustomers[0].order.burger_count
     #pop first value in queue so when it goes back through the loop it's the next customer
     queueCustomers.pop(0)
-    iCount += 1
+    iCnt += 1
 
 #take keys and values from dictionary and sort them by burger count from greatest to least into a list
 listSortedCustomers = sorted(dictCustomer.items(), key=lambda x: x[1], reverse=True) 
