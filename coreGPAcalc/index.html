@@ -1,0 +1,144 @@
+<!--Caden Baird, Mason Phelps, Caleb Brown, Dalan Cluff, Chris Prinster, Ben Macmichael
+Create a webpage that allows the user to input scores that are relevant for applying to
+the IS major and then calculate their overall applying coreGPA and display it for them to see-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>IS Core GPA calculator</title>
+        <script>
+            //This function is called when the user clicks on the calcGPA button
+            function calcGPA()
+            {
+                //Extract the values from the HTML inputs by their assigned id and assigns them to variables
+                //The value extracted is converted from a string to a float/decimal
+                fIS201 = parseFloat(document.getElementById("is201Grade").value);
+                fACC200 = parseFloat(document.getElementById("acc200Grade").value);
+                fIS303= parseFloat(document.getElementById("is303Grade").value);
+                fOverallGPA = parseFloat(document.getElementById("overallGPA").value);
+                fLast30GPA = parseFloat(document.getElementById("last30GPA").value);
+                fEssay = parseInt(document.getElementById("essay").value);
+                //calculates new gpa
+                fFinalGPA = ((fIS201 * .3) + (fIS303 * .3) + (fACC200 * .05) + (fOverallGPA * .12) + (fLast30GPA * .18) + (fEssay * .05)).toFixed(2);
+                //Display the calculated GPA to the HTML label named "coreGPA"
+                document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
+            }
+            </script>
+        <!--We kept all these links below from the bootstrap template and in order to change the way
+        the website looks (like the background image and the favicon.ico etc) we went to where those
+        files were that came with the Bootstrap template and replaced them with what we wanted-->
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container px-4 px-lg-5">
+                <!--The navbar-brand class below and the 2 lines above this comment create a line at the top of the webpage that lists our 
+                    group members and it looks like a nice touch and also may be a help to the TA's grading-->
+                <p class="navbar-brand">Group 8: Caden Baird, Mason Phelps, Caleb Brown, Dalan Cluff, Chris Prinster, Ben Macmichael</p>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <!--The below classes are from bootstrap and they put the description of what our page does in the center of the webpage-->
+            <div class="container px-4 px-lg-5 h-100">
+                <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+                    <div class="col-lg-8 align-self-end">
+                        <h1 class="text-white font-weight-bold" style="font-size: xx-large;">Let's calculate your Information Systems application GPA!!</h1>
+                        <hr class="divider" />
+                    </div>
+                    <div class="col-lg-8 align-self-baseline">
+                        <form style="color:antiquewhite" >
+                            <!--insert html tags -->
+                            <!--We use an number type input allowing 2 decimal places, minimum of 0 and max at 4.0 for GPA -->
+                            <label for="overallGPA">Enter your overall GPA (round to 2 decimal places):</label>
+                            <input type="number" id="overallGPA" name="overallGPA step="0.01" min="0.0" max="4.0" step=".01" required>
+                            <br><br>
+                            <label for="last30GPA">Enter your last 30 credits GPA (round to 2 decimal places): </label>
+                            <input type="number" id="last30GPA" name="last30GPA step="0.01" min="0.0" max="4.0" step=".01" required>
+                            <br><br>
+                            <!-- we use drop down lists to select grades for accounting and both IS classes
+                            The assigned values correlate with the GPA for each grade. -->
+                            <label for="acc200Grade">What was your ACC200 grade? </label>
+                            <select name="essay" id="acc200Grade" required>
+                                <option value="4.0">A</option>
+                                <option value="3.667">A-</option>
+                                <option value="3.333">B+</option>
+                                <option value="3.0">B</option>
+                                <option value="2.667">B-</option>
+                                <option value="2.333">C+</option>
+                                <option value="2.0">C</option>
+                                <option value="1.667">C-</option>
+                                <option value="1.333">D+</option>
+                                <option value="1.0">D</option>
+                                <option value=".667">D-</option>
+                                <option value="0">F</option>
+                            </select>
+                            <br><br>
+                            <label for="is201Grade">What was your IS201 grade? </label>
+                            <select name="essay" id="is201Grade" required>
+                                <option value="4.0">A</option>
+                                <option value="3.667">A-</option>
+                                <option value="3.333">B+</option>
+                                <option value="3.0">B</option>
+                                <option value="2.667">B-</option>
+                                <option value="2.333">C+</option>
+                                <option value="2.0">C</option>
+                                <option value="1.667">C-</option>
+                                <option value="1.333">D+</option>
+                                <option value="1.0">D</option>
+                                <option value=".667">D-</option>
+                                <option value="0">F</option>
+                            </select>
+                            <br><br>
+                            <label for="is303Grade">What was your IS303 grade? </label>
+                            <select name="essay" id="is303Grade" required>
+                                <option value="4.0">A</option>
+                                <option value="3.667">A-</option>
+                                <option value="3.333">B+</option>
+                                <option value="3.0">B</option>
+                                <option value="2.667">B-</option>
+                                <option value="2.333">C+</option>
+                                <option value="2.0">C</option>
+                                <option value="1.667">C-</option>
+                                <option value="1.333">D+</option>
+                                <option value="1.0">D</option>
+                                <option value=".667">D-</option>
+                                <option value="0">F</option>
+                            </select>
+                     <br><br>
+                            <label for="essay">What was your essay score? </label>
+                            <select name="essay" id="essay" required>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <br><br>
+                            <!--This is the button that will calculate all the gpa for the application. It grabs the javascript function
+                            that is back in the head-->
+                            <button type="button" onclick="calcGPA()">Calculate GPA</button>
+                            <br>
+                            <label id = coreGPA></label>
+                            <!--insert a label tag for displaying the calcualted GPA -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </body>
+</html>
