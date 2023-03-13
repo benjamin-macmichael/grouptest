@@ -62,7 +62,7 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                     </div>
                     <div class="col-lg-8 align-self-baseline">
                         <form style="color:antiquewhite" >
-                            <!--insert html tags -->
+                            <!--Insert html tags -->
                             <!--We use an number type input allowing 2 decimal places, minimum of 0 and max at 4.0 for GPA -->
                             <label for="overallGPA">Enter your overall GPA (round to 2 decimal places):</label>
                             <input type="number" id="overallGPA" name="overallGPA step="0.01" min="0.0" max="4.0" step=".01" required>
@@ -70,7 +70,7 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                             <label for="last30GPA">Enter your last 30 credits GPA (round to 2 decimal places): </label>
                             <input type="number" id="last30GPA" name="last30GPA step="0.01" min="0.0" max="4.0" step=".01" required>
                             <br><br>
-                            <!-- we use drop down lists to select grades for accounting and both IS classes
+                            <!-- We use drop down lists to select grades for accounting and both IS classes
                             The assigned values correlate with the GPA for each grade. -->
                             <label for="acc200Grade">What was your ACC200 grade? </label>
                             <select name="essay" id="acc200Grade" required>
@@ -120,6 +120,7 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                                 <option value="0">F</option>
                             </select>
                      <br><br>
+                            <!--We also use a drop down list to select the option value for the essay score-->
                             <label for="essay">What was your essay score? </label>
                             <select name="essay" id="essay" required>
                                 <option value="0">0</option>
@@ -134,7 +135,7 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                             <button type="button" onclick="calcGPA()">Calculate GPA</button>
                             <br>
                             <label id = coreGPA></label>
-                            <!--insert a label tag for displaying the calcualted GPA -->
+                            <!--Insert a label tag for displaying the calcualted GPA -->
                         </form>
                     </div>
                 </div>
