@@ -27,6 +27,18 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                 document.getElementById("coreGPA").innerHTML = "Core GPA is " + fFinalGPA;
             }
             </script>
+        <script>
+            //This function is called when the user inputs their overall GPA and last 30 credits GPA and checks to see if they input a value greater than 4
+            //if they didn't then this function doesn't do anything but if they did then it shows them a message saying max value is 4.0
+            function checkLength(elem) 
+            {
+                // checking if iput value is more than 4
+                if (elem.value > 4) {
+                    alert('Max value is 4.0')
+                    elem.value = ''; // emptying the input box
+                }
+                }
+            </script>
         <!--We kept all these links below from the bootstrap template and in order to change the way
         the website looks (like the background image and the favicon.ico etc) we went to where those
         files were that came with the Bootstrap template and replaced them with what we wanted-->
@@ -65,10 +77,10 @@ the IS major and then calculate their overall applying coreGPA and display it fo
                             <!--Insert html tags -->
                             <!--We use an number type input allowing 2 decimal places, minimum of 0 and max at 4.0 for GPA -->
                             <label for="overallGPA">Enter your overall GPA (round to 2 decimal places):</label>
-                            <input type="number" id="overallGPA" name="overallGPA step="0.01" min="0.0" max="4.0" step=".01" required>
+                            <input type="number" id="overallGPA" name="overallGPA" step="0.01" min="0.0" max="4.0" oninput="checkLength(this)" required>
                             <br><br>
                             <label for="last30GPA">Enter your last 30 credits GPA (round to 2 decimal places): </label>
-                            <input type="number" id="last30GPA" name="last30GPA step="0.01" min="0.0" max="4.0" step=".01" required>
+                            <input type="number" id="last30GPA" name="last30GPA" step="0.01" min="0.0" max="4.0" oninput="checkLength(this)" required>
                             <br><br>
                             <!-- We use drop down lists to select grades for accounting and both IS classes
                             The assigned values correlate with the GPA for each grade. -->
